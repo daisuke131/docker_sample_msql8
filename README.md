@@ -1,24 +1,32 @@
-# README
+# Docker sample
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## version
+- ruby: 2.6.1
+- rails: 5.2.3
+- mysql: 8.0.15
+- mysql2: 0.5.2
 
-Things you may want to cover:
+## docker files
+- Dockerfile: /docker/development
+- docker-compose.yml: /
+- modified database.yml
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```database.yml
+username: <%= ENV.fetch("MYSQL_USERNAME", "root") %>
+password: <%= ENV.fetch("MYSQL_PASSWORD", "root") %>
+host: <%= ENV.fetch("MYSQL_HOST", "database") %>
+```
+> host: localhost  
+username: root  
+password: root  
+port: 4306
+## docker command
+- build: `$ docker-compose build`
+- start app: `$ docker-compose up`
+- bundle install: `$ docker-compose run --rm app bundle install`
+- confirm container: `$ docker ps -a`
+- delete container: `$ docker rm [container code]`
+- confirm image: `$ docker images`
+- delete image: `$ docker rmi [image code]`
+if error of multiple repositories...
+- Forced deletion image: `$ docker rmi [image code] -f`
