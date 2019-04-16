@@ -27,6 +27,7 @@ port: 4306
 - confirm container: `$ docker ps -a`
 - delete container: `$ docker rm [container code]`
 - confirm image: `$ docker images`
-- delete image: `$ docker rmi [image code]`
-if error of multiple repositories...
+- delete image: `$ docker rmi [image code]`<br>
+
+if error of multiple repositories...<br>
 - Forced deletion image: `$ docker rmi [image code] -f`
